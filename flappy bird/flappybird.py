@@ -155,9 +155,12 @@ def birds_screen():
                 if click:
                     if coins_val >= 3:
                         coins_val -= 3
+                        birds_bought.append(birds[currViewingBird])
+                        with open('coins.txt', "w") as f:
+                            f.write(str(coins_val))
+                        f.close()
     
                     pygame.display.update()
-                    birds_bought.append(birds[currViewingBird])
 
         birdtext = font.render(birds[currViewingBird], True, (152,251,15))
         screen.blit(birdtext, (430, 100))
